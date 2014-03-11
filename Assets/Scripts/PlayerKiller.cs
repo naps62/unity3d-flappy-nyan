@@ -6,6 +6,7 @@ public class PlayerKiller : MonoBehaviour {
 	public GameObject background;
 	public GameObject ground;
 	public GameObject pipes;
+	public float gameOverUpForce;
 
 	private bool waitingRestart;
 
@@ -34,5 +35,9 @@ public class PlayerKiller : MonoBehaviour {
 		GameObject.FindGameObjectWithTag(Tags.music).GetComponent<AudioSource>().Stop();
 		GameObject.FindGameObjectWithTag(Tags.gameOverText).GetComponent<GUIText>().enabled = true;
 		waitingRestart = true;
+
+		collider2D.enabled = false;
+		rigidbody2D.AddForce(Vector3.up * gameOverUpForce);
+		transform.Rotate(0f, 0f, 30f);
 	}
 }
