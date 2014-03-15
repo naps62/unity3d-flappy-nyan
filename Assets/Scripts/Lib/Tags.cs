@@ -8,7 +8,7 @@ public class Tags : MonoBehaviour {
 	public static string pipe = "pipe";
 	public static string scoreText = "ScoreText";
 	public static string bestScoreText = "BestScoreText";
-	public static string pipeGenerator = "PipeGenerator";
+	public static string waveGenerator = "WaveGenerator";
 	public static string music = "Music";
 	public static string gameOverText = "GameOverText";
 	public static string callToAction = "CallToAction";

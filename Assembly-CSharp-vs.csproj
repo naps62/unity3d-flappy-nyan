@@ -50,13 +50,14 @@
      <Compile Include="Assets\Scripts\InfiniteScroller.cs" />
      <Compile Include="Assets\Scripts\Lib\HashIDs.cs" />
      <Compile Include="Assets\Scripts\Lib\Tags.cs" />
-     <Compile Include="Assets\Scripts\PipeGenerator.cs" />
-     <Compile Include="Assets\Scripts\PipeScorer.cs" />
-     <Compile Include="Assets\Scripts\PipeScroller.cs" />
      <Compile Include="Assets\Scripts\PlayerKiller.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\RandomizePipePosition.cs" />
      <Compile Include="Assets\Scripts\ScoreController.cs" />
+     <Compile Include="Assets\Scripts\WaveGenerator.cs" />
+     <Compile Include="Assets\Scripts\WaveInitializer.cs" />
+     <Compile Include="Assets\Scripts\WaveScorer.cs" />
+     <Compile Include="Assets\Scripts\WaveScroller.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,10 +5,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float jumpForce;
 	public float tilt;
-	public float jumpVelocity;
-	public float fallVelocity;
-
-	private bool jumping;
 
 	void Update() {
 		if (JumpTriggered()) {
@@ -26,12 +22,11 @@ public class PlayerMovement : MonoBehaviour {
 	void Jump() {
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.AddForce(Vector2.up * jumpForce);
-		jumping = true;
 	}
 
 	void StartGame() {
 		rigidbody2D.isKinematic = false;
-		GameObject.FindGameObjectWithTag(Tags.pipeGenerator).GetComponent<PipeGenerator>().Enable();
+		GameObject.FindGameObjectWithTag(Tags.waveGenerator).GetComponent<WaveGenerator>().Enable();
 		Destroy(GameObject.FindGameObjectWithTag(Tags.callToAction));
 	}
 }

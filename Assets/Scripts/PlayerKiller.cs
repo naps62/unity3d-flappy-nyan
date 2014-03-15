@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerKiller : MonoBehaviour {
 
 	public GameObject background;
-	public GameObject ground;
 	public GameObject pipes;
 	public float gameOverUpForce;
 
@@ -22,14 +21,12 @@ public class PlayerKiller : MonoBehaviour {
 
 	void GameOver() {
 		gameObject.GetComponent<PlayerMovement>().enabled = false;
-		gameObject.GetComponent<Animator>().enabled = false;
 
 		background.GetComponent<InfiniteScroller>().enabled = false;
-		ground.GetComponent<InfiniteScroller>().enabled = false;
-		pipes.GetComponent<PipeGenerator>().enabled = false;
+		pipes.GetComponent<WaveGenerator>().enabled = false;
 
 		foreach (GameObject pipe in GameObject.FindGameObjectsWithTag(Tags.pipe)) {
-			pipe.GetComponent<PipeScroller>().enabled = false;
+			pipe.GetComponent<WaveScroller>().enabled = false;
 		}
 
 		GameObject.FindGameObjectWithTag(Tags.music).GetComponent<AudioSource>().Stop();
@@ -39,5 +36,6 @@ public class PlayerKiller : MonoBehaviour {
 		collider2D.enabled = false;
 		rigidbody2D.AddForce(Vector3.up * gameOverUpForce);
 		transform.Rotate(0f, 0f, 30f);
+		GetComponent<Animator>().SetBool(HashIDs.dead, true);
 	}
 }
