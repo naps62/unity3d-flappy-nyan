@@ -24,4 +24,8 @@ public class ScoreController : MonoBehaviour {
 		scoreText.text = "Score: " + score;
 		bestScoreText.text = "Best: " + best;
 	}
+
+	public int GetCurrentHighscore() {
+		return best;
+	}
 }

@@ -13,4 +13,6 @@ public class Tags : MonoBehaviour {
 	public static string gameOverText = "GameOverText";
 	public static string callToAction = "CallToAction";
 	public static string ceiling = "Ceiling";
+	public static string asteroid = "Asteroid";
+	public static string wave = "Wave";
 }

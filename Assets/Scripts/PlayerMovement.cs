@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update() {
 		if (JumpTriggered()) {
-			if (rigidbody2D.isKinematic) {
+			if(rigidbody2D.isKinematic){
 				StartGame();
 			}
 			Jump();
@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 		rigidbody2D.AddForce(Vector2.up * jumpForce);
 	}
 
-	void StartGame() {
-		rigidbody2D.isKinematic = false;
+	void StartGame(){
+		GameObject.FindGameObjectWithTag(Tags.player).rigidbody2D.isKinematic = false;
 		GameObject.FindGameObjectWithTag(Tags.waveGenerator).GetComponent<WaveGenerator>().Enable();
 		Destroy(GameObject.FindGameObjectWithTag(Tags.callToAction));
 	}

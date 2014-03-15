@@ -7,13 +7,6 @@ public class PlayerKiller : MonoBehaviour {
 	public GameObject pipes;
 	public float gameOverUpForce;
 
-	private bool waitingRestart;
-
-	void Update() {
-		if (waitingRestart && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))) {
-			Application.LoadLevel(0);
-		}
-	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		GameOver();
@@ -22,16 +15,15 @@ public class PlayerKiller : MonoBehaviour {
 	void GameOver() {
 		gameObject.GetComponent<PlayerMovement>().enabled = false;
 
-		background.GetComponent<InfiniteScroller>().enabled = false;
 		pipes.GetComponent<WaveGenerator>().enabled = false;
 
-		foreach (GameObject pipe in GameObject.FindGameObjectsWithTag(Tags.pipe)) {
-			pipe.GetComponent<WaveScroller>().enabled = false;
+		foreach (GameObject wave in GameObject.FindGameObjectsWithTag(Tags.wave)) {
+			wave.GetComponent<WaveScroller>().enabled = false;
 		}
 
 		GameObject.FindGameObjectWithTag(Tags.music).GetComponent<AudioSource>().Stop();
 		GameObject.FindGameObjectWithTag(Tags.gameOverText).GetComponent<GUIText>().enabled = true;
-		waitingRestart = true;
+		GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<GUIControls>().gameOver = true;
 
 		collider2D.enabled = false;
 		rigidbody2D.AddForce(Vector3.up * gameOverUpForce);
